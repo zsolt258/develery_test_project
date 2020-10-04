@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+    {% for type, messages in app.session.flashbag.all %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                 {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+                {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
